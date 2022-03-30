@@ -3,7 +3,6 @@ frontend:
     phases:
         preBuild:
             commands:
-                - cd
                 - echo "registry=https://registry.npmjs.org/" > .npmrc
                 - echo "@dracula:registry=https://npm.pkg.github.com/" >> .npmrc
                 - echo "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}" >> .npmrc
