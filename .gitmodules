@@ -1,0 +1,6 @@
+[submodule "botdiz"]
+	path = packages/botdiz
+	url = https://github.com/oddiz/botdiz
+[submodule "botdiz_interface"]
+	path = botdiz_interface
+	url = https://github.com/oddiz/botdiz_interface.git
