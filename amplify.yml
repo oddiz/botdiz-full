@@ -1,0 +1,20 @@
+version: 1
+frontend:
+    phases:
+        preBuild:
+            commands:
+                - echo "registry=https://registry.npmjs.org/" > .npmrc
+                - echo "@dracula:registry=https://npm.pkg.github.com/" >> .npmrc
+                - echo "//npm.pkg.github.com/:_authToken=${NPM_TOKEN}" >> .npmrc
+                - echo 'REACT_APP_RECAPTCHA_SITEKEY="${REACT_APP_RECAPTCHA_SITEKEY}"' > .env
+                - yarn install
+        build:
+            commands:
+                - yarn run build
+    artifacts:
+        baseDirectory: build
+        files:
+            - "**/*"
+    cache:
+        paths:
+            - node_modules/**/*
