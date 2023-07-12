@@ -1,0 +1,60 @@
+services:
+  frontend:
+    build:
+      context: ./packages/botdiz_interface
+      target: development
+    ports:
+      - 3000:3000
+    stdin_open: true
+    volumes:
+      - ./packages/botdiz_interface:/usr/src/app
+      - /usr/src/app/node_modules
+    restart: always
+    networks:
+      - react-express
+    depends_on:
+      - backend
+
+  backend:
+    restart: always
+    build:
+      context: ./packages/botdiz
+      target: development
+    ports:
+      - 8080:8080
+    volumes:
+      - ./packages/botdiz:/usr/src/app
+      - /usr/src/app/node_modules
+    depends_on:
+      - mongo
+      - lavalink
+    networks:
+      - express-mongo
+      - react-express
+      - lavalink-network
+    expose: 
+      - 8080
+
+  mongo:
+    image: mongo:4.4.19
+    volumes:
+      - ./data:/data/db
+    networks:
+      - express-mongo
+    expose:
+      - 27017
+
+  lavalink:
+    restart: always
+    image: fredboat/lavalink:dev
+    build: ./packages/lavalink
+    volumes:
+      - ./packages/lavalink/lavalink_settings.yaml:/opt/Lavalink/application.yml 
+    expose:
+      - 2333
+    networks:
+      - lavalink-network
+networks:
+  react-express:
+  express-mongo:
+  lavalink-network:

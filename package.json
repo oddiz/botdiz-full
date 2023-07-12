@@ -1,9 +1,13 @@
 {
-  "name": "root",
+  "name": "botdiz-package",
   "private": true,
   "devDependencies": {
     "discord.js": "^13.6.0",
     "lerna": "^4.0.0",
     "spotify-api": "^0.0.0"
+  },
+
+  "scripts": {
+    "docker": "docker-compose up -V"
   }
 }

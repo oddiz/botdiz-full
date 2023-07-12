@@ -103,5 +103,6 @@
 			"@botdiz_interface": ["./packages/botdiz_interface"]
 		}
 	},
+    "files": [],
 	"references": [{ "path": "./packages/botdiz" }, { "path": "./packages/botdiz_interface" }]
 }
