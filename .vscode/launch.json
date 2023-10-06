@@ -1,0 +1,33 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "command": "npm start",
+      "name": "Run npm start",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/packages/botdiz"
+    },
+    {
+      "name": "botdiz backend",
+      "type": "node",
+      // Replace "<your-package-entry-point>" with your actual entry point file
+      // For example: if your entry point is index.js, replace it like below:
+      // "program": "${workspaceFolder}/index.js"
+      // If your entry point is located inside a subdirectory, provide that path accordingly.
+      // For example: if your entry point is inside src/ directory,
+      // then update program value as:
+      //   - for Windows: "${workspaceFolder}\\src\\<your-package-entry-point>"
+      //   - for macOS/Linux: "${workspaceFolder}/src/<your-package-entry-point>"
+
+      "program": "${workspaceFolder}/packages/botdiz/build/server_src/server.js",
+
+      // Optional: Specify working directory if required
+      // Example:
+      "cwd": "${workspaceFolder}/packages/botdiz"
+
+      // Optional: Set breakpoints in your code
+      //"stopOnEntry": false,
+    }
+  ]
+}

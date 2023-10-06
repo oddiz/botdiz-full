@@ -6,8 +6,9 @@
     "lerna": "^4.0.0",
     "spotify-api": "^0.0.0"
   },
-
   "scripts": {
-    "docker": "docker-compose up -V"
+    "docker": "docker-compose up -V",
+    "dockerbuild": "docker-compose up --build -V"
   }
 }
+
